@@ -73,6 +73,30 @@
 }
 
 ///
+/// Mine
+///
+
+@mixin theme-neutral {
+  background-color: $background-color;
+  color: $main-color;
+}
+
+@mixin theme-one {
+  background-color: $background-color-1;
+  color: $main-color-1;
+}
+
+@mixin theme-two {
+  background-color: $background-color-2;
+  color: $main-color-2;
+}
+
+@mixin theme-three {
+  background-color: $background-color-3;
+  color: $main-color-3;
+}
+
+///
 /// Credit: thoughtbot - http://robots.thoughtbot.com/sasss-content-directive
 ///
 

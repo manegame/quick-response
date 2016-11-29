@@ -1,0 +1,40 @@
+div { 
+	&.dragscroll {
+		width: 100%;
+		overflow-x: scroll;
+		.slideshow {
+			@include theme-neutral;
+			height: 100%;
+			float: left;
+			img {
+				width: 50vw;
+				display: inline-block;
+				margin-top: 0;
+			}
+			&.one, &.two {
+				width: 100vw;
+			}
+			&.three {
+				width: 155vw;
+			}
+			&.five {
+				width: 255vw;
+			}
+			@include screen-size(small) {
+				img {
+					width: 66vw;
+					display: inline-block;
+				}
+				&.one, &.two {
+					width: 137vw;
+				}
+				&.three {
+					width: 203vw;
+				}
+				&.five {
+					width: 335vw;
+				}
+			}
+		}
+	}	
+}

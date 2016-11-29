@@ -10,29 +10,58 @@
     
   var shared              = require("./shared"),
       debounce            = require('debounce');
-      
-  //  require("swiper");
-  //  require("fullpage.js");
-  
-  // Modernizr tests
-  // require('browsernizr/test/webgl');
-  // require('browsernizr/test/workers/webworkers');
-  // require('browsernizr/test/webrtc/peerconnection');
-  // require('browsernizr/test/storage/localstorage');
-  // require('browsernizr/test/audio/webaudio');
-  // require('browsernizr/test/websockets');
-  // var Modernizr = require('browsernizr');
+
+   require("dragscroll");
   
   $(function () {
     
     console.log("READY");
-    
+        
     //    var swiper = new Swiper('.swiper-container', {
     //      speed: 1000
     //      autoplay: 40
     //    });
 
-    //    $('#fullpage').fullpage();  
+    var DELAY   = 200, //MS
+        clicks  = 0,
+        timer   = null; 
+
+    $("img")
+        .on("click", function(e){
+
+            clicks++;  //count clicks
+
+            if(clicks === 1) {
+
+                timer = setTimeout(function() {
+
+                  $(this).find('img').toggleClass('shrink'); //perform single-click action
+
+                    clicks = 0;  //after action performed, reset counter
+
+                }, DELAY);
+
+            } else {
+
+                clearTimeout(timer);  //prevent single-click action
+
+                console.log($(this)); //perform single-click action
+
+                // $(this).toggleClass('grow');  //perform double-click action
+
+                clicks = 0;  //after action performed, reset counter
+            }
+
+        })
+        .on("dblclick", function(){
+          e.preventDefault();  //cancel system double-click event
+        });
+
+    // $('img').on('click', function(){
+    //   $(this).toggleClass('shrink');
+    // });
+
+
 
   });
 
